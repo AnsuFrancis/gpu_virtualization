@@ -1,0 +1,11 @@
+Create library:
+gcc -fPIC -shared -I/usr/local/cuda/include/ -L/usr/local/cuda/lib64 -lcudart -o preload.so preload.c
+
+For app.cu with libcudart
+Compile:
+nvcc -I/usr/local/cuda/include/ -L/usr/local/cuda/lib64 -lcudart -o app app.cu
+
+Run:
+LD_PRELOAD=preload.so ./app
+
+
